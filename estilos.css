@@ -1,0 +1,88 @@
+/* La paleta azul marino de la app (modo oscuro de printing-web, globals.css). */
+:root {
+  --fondo: #0c1626;
+  --superficie: #15223a;
+  --hundido: #1f2f4b;
+  --borde: #24344f;
+  --tinta: #f2f5fa;
+  --tinta-suave: #a9b6ca;
+  --marca: #1a73e8;
+  --enlace: #6ea8ff;
+  --exito: #6fd3a4;
+  --amarillo: #fcc419;
+  --radio: 16px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--tinta);
+  font: 17px/1.55 Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+a { color: var(--enlace); }
+.envoltura { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+header.sitio {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 18px 0;
+}
+.marca { display: flex; align-items: center; gap: 10px; color: var(--tinta); text-decoration: none; }
+.marca img { width: 30px; height: 32px; }
+.marca span { font-weight: 800; line-height: 1.05; font-size: 15px; }
+nav a { color: var(--tinta-suave); text-decoration: none; font-size: 15px; padding: 12px 4px; }
+nav a:hover { color: var(--tinta); }
+
+.portada { padding: 40px 0 24px; }
+h1 { font-size: clamp(38px, 7vw, 56px); line-height: 1.08; letter-spacing: -0.02em; margin: 0 0 18px; }
+h1 .amarillo { color: var(--amarillo); display: block; }
+.lema { font-size: 20px; margin: 0 0 10px; }
+.suave { color: var(--tinta-suave); }
+.boton {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 48px;
+  padding: 0 22px; border-radius: 12px; background: var(--marca); color: #fff;
+  font-weight: 700; text-decoration: none; margin-top: 18px;
+}
+
+section { padding: 28px 0; }
+h2 { font-size: 28px; line-height: 1.2; margin: 0 0 16px; }
+h3 { font-size: 18px; margin: 0 0 4px; }
+.pasos { display: grid; gap: 14px; grid-template-columns: 1fr; padding: 0; margin: 0; list-style: none; counter-reset: paso; }
+.pasos li {
+  background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio);
+  padding: 18px; display: flex; gap: 14px; counter-increment: paso;
+}
+.pasos li::before {
+  content: counter(paso); flex: none; width: 34px; height: 34px; border-radius: 50%;
+  background: var(--hundido); color: var(--enlace); font-weight: 800;
+  display: grid; place-items: center;
+}
+.pasos p { margin: 0; color: var(--tinta-suave); }
+.tarjeta { background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio); padding: 20px; }
+.ventajas { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 10px; }
+.ventajas li { display: flex; gap: 10px; }
+.ventajas li::before {
+  content: "✓"; flex: none; width: 24px; height: 24px; border-radius: 50%;
+  background: var(--exito); color: var(--fondo); font-weight: 900; font-size: 14px;
+  display: grid; place-items: center; margin-top: 2px;
+}
+.contacto dl { margin: 0; display: grid; gap: 12px; }
+.contacto dt { color: var(--tinta-suave); font-size: 15px; }
+.contacto dd { margin: 0; font-weight: 600; }
+
+footer.sitio {
+  border-top: 1px solid var(--borde); margin-top: 32px; padding: 22px 0 32px;
+  color: var(--tinta-suave); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 18px;
+}
+footer.sitio a { color: var(--tinta-suave); }
+
+/* El aviso de privacidad: texto largo, de lectura */
+.legal { max-width: 720px; padding-bottom: 24px; }
+.legal h1 { font-size: 34px; }
+.legal h2 { font-size: 21px; margin-top: 30px; }
+.legal li { margin-bottom: 6px; }
+.pendiente { background: rgba(252, 196, 25, 0.15); color: var(--amarillo); padding: 0 4px; border-radius: 4px; }
+
+@media (min-width: 760px) {
+  .pasos { grid-template-columns: 1fr 1fr; }
+  .dos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+}
